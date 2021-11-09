@@ -1,0 +1,5 @@
+{
+  "*.{js,jsx,ts,tsx,css,less,html,md,json}": [
+    "npm run lint"
+  ]
+}
