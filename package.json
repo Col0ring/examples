@@ -14,7 +14,7 @@
     "pre-commit:lint-staged": "lint-staged",
     "commit-msg:commitlint": "commitlint --config commitlint.config.js -e $HUSKY_GIT_PARAMS",
     "lint": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
-    "lint:prettier": "prettier --write --no-error-on-unmatched-pattern **/*.{ts,tsx,js,json,html,yml,css,less,md}",
+    "lint:prettier": "prettier --write --no-error-on-unmatched-pattern **/*.{ts,tsx,js,jsx,svg,json,html,yml,css,less,md}",
     "lint:eslint": "eslint --fix -c .eslintrc.js --ext .ts,.tsx,.js,.jsx .",
     "lint:stylelint": "stylelint --allow-empty-input --fix --config stylelint.config.js \"**/*.(css|less)\"",
     "commit": "cz"
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-angular": "^13.2.0",
+    "@prettier/plugin-xml": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "commitizen": "^4.2.4",
@@ -38,6 +39,7 @@
     "husky": "^7.0.4",
     "less": "^4.1.2",
     "lint-staged": "^11.2.6",
+    "postcss-less": "^5.0.0",
     "prettier": "^2.4.1",
     "stylelint": "^14.0.1",
     "stylelint-config-prettier": "^9.0.3",

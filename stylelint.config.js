@@ -1,5 +1,6 @@
 const prettierConfig = require('./prettier.config')
 module.exports = {
+  customSyntax: 'postcss-less',
   extends: [
     'stylelint-config-standard',
     'stylelint-config-rational-order',
@@ -30,9 +31,8 @@ module.exports = {
   },
   ignoreFiles: [
     '**/node_modules/**/*',
-    '**/es/**/*',
-    '**/lib/**/*',
-    '**/docs-dist/**/*',
-    '**/.umi/**/*',
+    '**/dist/**/*',
+    '**/dist-ssr/**/*',
+    '**/assets/**/*',
   ],
 }
