@@ -5,7 +5,7 @@
   "*.{css,less}": [
     "npm run lint:stylelint"
   ],
-  "*.{json,html,yml,md}": [
+  "*.{json,html,svg,yml,md}": [
     "npm run lint:prettier"
   ]
 }
