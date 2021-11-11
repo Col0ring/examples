@@ -1,24 +1,31 @@
 import React from 'react'
-import { DragDropContext, DragDropContextProps } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
 import Task from './task'
-import { TaskOptions } from './type'
+import { Task as TaskOptions } from './type'
 
 export interface TaskListProps {
-  taskList: TaskOptions[]
+  tasks: TaskOptions[]
+  droppableId: string
 }
 
-const TaskList: React.FC<TaskListProps> = ({ taskList }) => {
-  const onDragEnd: DragDropContextProps['onDragEnd'] = () => {
-    console.log('drag end here!')
-  }
+const TaskList: React.FC<TaskListProps> = ({ droppableId, tasks }) => {
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="task-list">
-        {taskList.map((task, index) => (
-          <Task key={task.id} task={task} index={index} />
-        ))}
-      </div>
-    </DragDropContext>
+    <Droppable droppableId={droppableId}>
+      {(provided) => (
+        <div
+          className="task-list"
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+        >
+          {tasks.map((task, index) => (
+            <React.Fragment key={task.id}>
+              <Task task={task} index={index} />
+            </React.Fragment>
+          ))}
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
   )
 }
 
